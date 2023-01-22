@@ -15,7 +15,7 @@ jobs:
           submodules: true
       - run: sudo apt-get update && sudo apt-get install libboost-test-dev libboost-program-options-dev libboost-filesystem-dev libboost-regex-dev -y
       - run: cmake . -DPATCH_VERSION=${{ github.run_number }} -DWITH_BOOST_TEST=ON
-      - run: cmake --build .
+      - run: cmake --build . -lboost_program_options -lboost_filesystem -lboost_regex 
       - run: cmake --build . --target package
       - name: Create Release
         id: create_release
