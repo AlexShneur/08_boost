@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: true
-      - run: sudo apt-get update && sudo apt-get install libboost-test-dev libboost-program-options-dev libboost-filesystem-dev libboost-regex-dev -y
+      - run: sudo apt-get update && sudo apt-get --fix_broken install libboost-test-dev libboost-program-options-dev libboost-filesystem-dev libboost-crc-dev libboost-regex-dev -y
       - run: cmake . -DPATCH_VERSION=${{ github.run_number }} -DWITH_BOOST_TEST=ON
       - run: cmake --build .
       - run: cmake --build . --target package
