@@ -3,6 +3,7 @@
 #include <boost/crc.hpp>
 
 #include <fstream> 
+#include <cmath>
 
 class MyFile
 {
