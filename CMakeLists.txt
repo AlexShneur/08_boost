@@ -5,8 +5,6 @@ set(PROJECT_VERSION 0.0.${PATCH_VERSION})
 
 project(bayan VERSION ${PROJECT_VERSION})
 
-enable_testing()
-
 option(WITH_BOOST_TEST "Whether to build Boost test" ON)
 
 add_executable(bayan main.cpp)
