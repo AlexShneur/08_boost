@@ -27,8 +27,7 @@ if(WITH_BOOST_TEST)
         CXX_STANDARD_REQUIRED ON
     )
 	
-	set_target_properties(test_bayan PROPERTIES
-        COMPILE_DEFINITIONS BOOST_TEST_DYN_LINK
+	set_target_properties(test_bayan 
         INCLUDE_DIRECTORIES ${Boost_INCLUDE_DIR}
     )
 	
