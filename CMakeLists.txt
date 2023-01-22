@@ -27,7 +27,7 @@ if(WITH_BOOST_TEST)
         CXX_STANDARD_REQUIRED ON
     )
 	
-	set_target_properties(test_bayan 
+	set_target_properties(test_bayan PROPERTIES
         INCLUDE_DIRECTORIES ${Boost_INCLUDE_DIR}
     )
 	
