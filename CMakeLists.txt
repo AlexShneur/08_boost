@@ -19,7 +19,7 @@ target_include_directories(bayan
 )
 
 if(WITH_BOOST_TEST)
-	find_package(Boost REQUIRED COMPONENTS unit_test_framework program_options filesystem crc regex)
+	find_package(Boost 1.80.0 REQUIRED COMPONENTS unit_test_framework program_options filesystem crc regex)
 	add_executable(test_bayan test.cpp)
 	
 	set_target_properties(test_bayan PROPERTIES
