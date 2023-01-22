@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.12)
 set(PATCH_VERSION "1" CACHE INTERNAL "Patch version")
 set(PROJECT_VERSION 0.0.${PATCH_VERSION})
 
-set(CMAKE_CXX_FLAGS "-lboost_program_options")
+add_compile_options(-lboost_program_options -lboost_filesystem -lboost_regex)
 
 project(bayan VERSION ${PROJECT_VERSION})
 
