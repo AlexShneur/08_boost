@@ -16,8 +16,8 @@ set_target_properties(bayan PROPERTIES
     CXX_STANDARD_REQUIRED ON
 )
  
-target_include_directories(bayan test_objects
-    PRIVATE "${CMAKE_BINARY_DIR}"
+target_include_directories(bayan
+    PRIVATE "${CMAKE_BINARY_DIR}" "${CMAKE_BINARY_DIR}/test_objects"
 )
 
 if(WITH_BOOST_TEST)
