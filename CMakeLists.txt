@@ -33,7 +33,7 @@ if(WITH_BOOST_TEST)
     )
 	
 	target_link_libraries(test_bayan
-        ${Boost_LIBRARIES}
+        ${Boost_LIBRARIES} ${Boost_PROGRAM_OPTIONS_LIBRARY} ${Boost_REGEX_LIBRARY}
     )
 endif()	
 
