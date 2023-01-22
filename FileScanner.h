@@ -6,7 +6,7 @@
 #include <vector>
 #include <map>
 
-#include <boost\regex.hpp>
+#include <boost/regex.hpp>
 namespace fs = boost::filesystem;
 
 class FileScanner
