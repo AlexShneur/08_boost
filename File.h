@@ -15,7 +15,7 @@ public:
 
 	const size_t get_block_count() const
 	{
-		return static_cast<size_t>(std::ceil((float)fsize / block_size));
+		return static_cast<size_t>(ceil((float)fsize / block_size));
 	}
 
 	const std::string& get_path() const
