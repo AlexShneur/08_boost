@@ -3,8 +3,6 @@ cmake_minimum_required(VERSION 3.12)
 set(PATCH_VERSION "1" CACHE INTERNAL "Patch version")
 set(PROJECT_VERSION 0.0.${PATCH_VERSION})
 
-add_compile_options(-lboost_program_options -lboost_filesystem -lboost_regex)
-
 project(bayan VERSION ${PROJECT_VERSION})
 
 option(WITH_BOOST_TEST "Whether to build Boost test" ON)
@@ -34,7 +32,7 @@ if(WITH_BOOST_TEST)
     )
 	
 	target_link_libraries(test_bayan
-        ${Boost_LIBRARIES}
+        ${Boost_LIBRARIES} -lboost_program_options -lboost_filesystem -lboost_regex
     )
 endif()	
 
