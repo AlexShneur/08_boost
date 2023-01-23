@@ -5,41 +5,31 @@ set(PROJECT_VERSION 0.0.${PATCH_VERSION})
 
 project(bayan VERSION ${PROJECT_VERSION})
 
+find_package(Boost REQUIRED COMPONENTS unit_test_framework program_options filesystem regex)
+
 add_executable(bayan main.cpp)
 
-set_target_properties(bayan PROPERTIES
+add_executable(test_bayan test.cpp)
+
+set_target_properties(bayan test_bayan PROPERTIES
     CXX_STANDARD 17
     CXX_STANDARD_REQUIRED ON
-	COMPILE_DEFINITIONS BOOST_TEST_DYN_LINK
-	INCLUDE_DIRECTORIES ${Boost_INCLUDE_DIR}
 )
 
-target_link_libraries(bayan
+set_target_properties(bayan test_bayan PROPERTIES
+        COMPILE_DEFINITIONS BOOST_TEST_DYN_LINK
+        INCLUDE_DIRECTORIES ${Boost_INCLUDE_DIR}
+)
+
+target_link_libraries(bayan test_bayan
 	${Boost_LIBRARIES}
 )
  
-target_include_directories(bayan
+target_include_directories(bayan test_bayan
     PRIVATE "${CMAKE_BINARY_DIR}" "${CMAKE_BINARY_DIR}/test_objects"
 )
 
-find_package(Boost REQUIRED COMPONENTS unit_test_framework program_options filesystem regex)
-add_executable(test_bayan test.cpp)
-
-set_target_properties(test_bayan PROPERTIES
-	CXX_STANDARD 17
-	CXX_STANDARD_REQUIRED ON
-)
-
-set_target_properties(test_bayan PROPERTIES
-	COMPILE_DEFINITIONS BOOST_TEST_DYN_LINK
-	INCLUDE_DIRECTORIES ${Boost_INCLUDE_DIR}
-)
-
-target_link_libraries(test_bayan
-	${Boost_LIBRARIES}
-)
-
-install(TARGETS bayan RUNTIME DESTINATION bin)
+install(TARGETS bayan test_bayan RUNTIME DESTINATION bin)
 
 set(CPACK_GENERATOR DEB)
 set(CPACK_PACKAGE_VERSION_MAJOR "${PROJECT_VERSION_MAJOR}")
