@@ -10,9 +10,6 @@ add_executable(bayan main.cpp)
 set_target_properties(bayan PROPERTIES
     CXX_STANDARD 17
     CXX_STANDARD_REQUIRED ON
-)
-
-set_target_properties(bayan PROPERTIES
 	COMPILE_DEFINITIONS BOOST_TEST_DYN_LINK
 	INCLUDE_DIRECTORIES ${Boost_INCLUDE_DIR}
 )
