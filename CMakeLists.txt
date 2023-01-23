@@ -33,7 +33,7 @@ if(WITH_BOOST_TEST)
     )
 	
 	target_link_libraries(test_bayan
-        ${Boost_LIBRARIES}
+        ${Boost_LIBRARIES} PRIVATE Boost::program_options Boost::regex Boost::filesystem
     )
 endif()	
 
