@@ -19,7 +19,7 @@ target_include_directories(bayan
 )
 
 if(WITH_BOOST_TEST)
-	find_package(Boost REQUIRED COMPONENTS unit_test_framework program_options filesystem regex)
+	find_package(Boost COMPONENTS unit_test_framework program_options filesystem regex REQUIRED)
 	add_executable(test_bayan test.cpp)
 	
 	set_target_properties(test_bayan PROPERTIES
@@ -28,11 +28,12 @@ if(WITH_BOOST_TEST)
     )
 	
 	set_target_properties(test_bayan PROPERTIES
+		COMPILE_DEFINITIONS BOOST_TEST_DYN_LINK
         INCLUDE_DIRECTORIES ${Boost_INCLUDE_DIR}
     )
 	
 	target_link_libraries(test_bayan
-        ${Boost_LIBRARIES} -lboost_program_options -lboost_filesystem -lboost_regex
+        ${Boost_LIBRARIES}
     )
 endif()	
 
