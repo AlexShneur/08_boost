@@ -21,12 +21,28 @@ set_target_properties(bayan test_bayan PROPERTIES
         INCLUDE_DIRECTORIES ${Boost_INCLUDE_DIR}
 )
 
-target_link_libraries(bayan test_bayan
+target_link_libraries(bayan
+	${Boost_LIBRARIES}
+)
+
+target_link_libraries(test_bayan
 	${Boost_LIBRARIES}
 )
  
-target_include_directories(bayan test_bayan
-    PRIVATE "${CMAKE_BINARY_DIR}" "${CMAKE_BINARY_DIR}/test_objects"
+target_include_directories(bayan
+    PRIVATE "${CMAKE_BINARY_DIR}"
+)
+
+target_include_directories(bayan
+    PRIVATE "${CMAKE_BINARY_DIR}/test_objects" 
+)
+
+target_include_directories(test_bayan
+    PRIVATE "${CMAKE_BINARY_DIR}"
+)
+
+target_include_directories(test_bayan
+    PRIVATE "${CMAKE_BINARY_DIR}/test_objects" 
 )
 
 install(TARGETS bayan test_bayan RUNTIME DESTINATION bin)
